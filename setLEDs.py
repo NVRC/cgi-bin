@@ -5,6 +5,15 @@ import shelve
 from dotstar import Adafruit_DotStar
 from led_drivers import nLevelLinearGradient as nllg
 from led_drivers import gradientHelpers as gh
+
+def addToShelf(index, color):
+	s = shelve.open(db)
+	try:
+		s[str(index)] = color
+	finally:
+		s.close()
+
+		
 cgitb.enable()
 fs = cgi.FieldStorage()
 db = 'color_shelf.db'
@@ -46,10 +55,3 @@ for key in range(0,60):
 	i = i + 1
 strip.setBrightness(int(fs["brightness"].value,10))
 strip.show()
-
-def addToShelf(index, color):
-	s = shelve.open(db)
-	try:
-		s[str(index)] = color
-	finally:
-		s.close()
