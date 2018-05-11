@@ -12,7 +12,7 @@ db = 'color_shelf.db'
 argString =""
 nullCount = 0
 for key in fs.keys():
-	if fs[key].value == 'ffffff':
+	if str(fs[key].value) == "ffffff":
 		nullCount = nullCount + 1
 
 	argString +=fs[key].value
