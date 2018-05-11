@@ -12,7 +12,7 @@ db = 'color_shelf.db'
 argString =""
 nullCount = 0
 for key in fs.keys():
-	if(fs[key].value = 'ffffff'):
+	if fs[key].value == 'ffffff':
 		nullCount = nullCount + 1
 
 	argString +=fs[key].value
@@ -26,12 +26,17 @@ strip.begin()
 
 i = 0
 for key in range(0,60):
-	if(nullCount >= 60):
+	if nullCount >= 60:
 		s = shelve.open(db)
 		try:
 			temp = s[str(i)]
-			if (i = 59):
+			if i == 59:
 				close = True
+			else:
+				pass
+		finally:
+			if close:
+				s.close()
 	else:
 		temp = gh.dotstarlibalt_correction(fs[str(key)].value)
 		print(str(key)+' 0x%06x' % int(temp,16))
@@ -39,8 +44,6 @@ for key in range(0,60):
 		addToShelf(i,temp)
 	strip.setPixelColor(i,temp)
 	i = i + 1
-	if (close):
-		s.close()
 strip.setBrightness(int(fs["brightness"].value,10))
 strip.show()
 
