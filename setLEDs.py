@@ -20,6 +20,7 @@ fs = cgi.FieldStorage()
 
 argString =""
 nullCount = 0
+close = False
 for key in fs.keys():
 	if str(fs[key].value) == "000000":
 		nullCount = nullCount + 1
