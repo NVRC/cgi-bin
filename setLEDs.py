@@ -5,7 +5,7 @@ import shelve
 from dotstar import Adafruit_DotStar
 from led_drivers import nLevelLinearGradient as nllg
 from led_drivers import gradientHelpers as gh
-
+db = 'color_shelf.db'
 def addToShelf(index, color):
 	s = shelve.open(db)
 	try:
@@ -13,10 +13,10 @@ def addToShelf(index, color):
 	finally:
 		s.close()
 
-		
+
 cgitb.enable()
 fs = cgi.FieldStorage()
-db = 'color_shelf.db'
+
 
 argString =""
 nullCount = 0
