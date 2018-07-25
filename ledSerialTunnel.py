@@ -8,7 +8,7 @@ class LedSerialTunnel(object):
         self._count = 0
         self._ser = serial.Serial(self._port,9600)
         self._ser.write(b'0')
-        self._ser.write(b)
+        self._ser.write(hex(b))
 
     def addColor(self, colorHex):
         self._colorArray += colorHex
