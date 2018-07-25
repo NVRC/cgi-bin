@@ -55,3 +55,5 @@ for key in range(0,60):
 		addToShelf(i,temp)
 	ldt.addColor(temp)
 	i = i + 1
+
+ldt.close()

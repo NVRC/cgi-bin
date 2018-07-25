@@ -4,9 +4,15 @@ class LedSerialTunnel(object):
         import serial
         self._brightness = b
         self._port = "/dev/ttyUSB0"
-        self._colorArray = " "
+        self._colorArray = ""
         self._count = 0
         self._ser = serial.Serial(self._port,9600)
+        self._ser.port = "COM5"
+        self._ser.baudrate = 9600
+        self._ser.timeout = 1
+        self._ser.setDTR(False)
+        #arduinoSerialData.setRTS(False)
+        self._ser.open()
         self._ser.write(b'0')
         import time
         time.sleep(1)
@@ -24,3 +30,6 @@ class LedSerialTunnel(object):
             self._count = 0
             import time
             time.sleep(1)
+
+    def close(self):
+        self._ser.close()
