@@ -18,3 +18,5 @@ class LedSerialTunnel(object):
             self._ser.write(bytearray(self._colorArray))
             self._colorArray = ""
             self._count = 0
+            import time
+            time.sleep(10)
