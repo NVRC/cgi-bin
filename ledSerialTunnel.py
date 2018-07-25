@@ -2,18 +2,18 @@ class LedSerialTunnel(object):
 
     def __init__(self, b):
         import serial
-        self.brightness = b
-        self.port = "/dev/ttyUSB0"
-        self.colorArray = ""
-        self.count = 0
-        self.ser = serial.Serial(self.port,9600)
-        self.ser.write(b'0')
-        self.ser.write(b)
+        self._brightness = b
+        self._port = "/dev/ttyUSB0"
+        self._colorArray = ""
+        self._count = 0
+        self._ser = serial.Serial(self.port,9600)
+        self._ser.write(b'0')
+        self._ser.write(b)
 
     def addColor(self, colorHex):
-        self.colorArray += colorHex
-        self.count = self.count + 1
-        if count == 10:
-            self.ser.write(self.colorArray)
-            self.colorArray = ""
-            self.count = 0
+        self._colorArray += colorHex
+        self._count = self._count + 1
+        if self._count == 10:
+            self._ser.write(self._colorArray)
+            self._colorArray = ""
+            self._count = 0
