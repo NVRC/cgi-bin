@@ -34,8 +34,6 @@ print(argString)
 import ledSerialTunnel
 ldt = LedSerialTunnel(int(fs["brightness"].value)
 
-if str(fs["animation"].value) == "2dswitch":
-
 
 
 i = 0
