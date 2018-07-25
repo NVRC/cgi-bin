@@ -31,8 +31,12 @@ argString += fs["brightness"].value
 print "Content-Type: text/plain\n"
 print(argString)
 #nllg.led_output(argString)
-strip = Adafruit_DotStar(60)
-strip.begin()
+import ledSerialTunnel
+ldt = LedSerialTunnel(int(fs["brightness"].value)
+
+if str(fs["animation"].value) == "2dswitch":
+
+
 
 i = 0
 for key in range(0,60):
@@ -48,11 +52,9 @@ for key in range(0,60):
 			if close:
 				s.close()
 	else:
-		temp = gh.dotstarlib_correction(fs[str(key)].value)
+		#temp = gh.dotstarlib_correction(fs[str(key)].value)
 		print(str(key)+' 0x%06x' % int(temp,16))
 		temp = int('0x%06x' % int(temp,16),16)
 		addToShelf(i,temp)
-	strip.setPixelColor(i,temp)
+	ldt.addColor(temp)
 	i = i + 1
-strip.setBrightness(int(fs["brightness"].value,10))
-strip.show()
