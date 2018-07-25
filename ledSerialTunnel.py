@@ -4,7 +4,7 @@ class LedSerialTunnel(object):
         import serial
         self._brightness = b
         self._port = "/dev/ttyUSB0"
-        self._colorArray = ""
+        self._colorArray = " "
         self._count = 0
         self._ser = serial.Serial(self._port,9600)
         self._ser.write(b'0')
