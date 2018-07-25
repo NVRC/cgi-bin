@@ -17,8 +17,7 @@ class LedSerialTunnel(object):
         self._ser.write(b'0')
         import time
         time.sleep(1)
-        print(len(self._brightness))
-        self._ser.write(format(self._brightness, '#02x'))
+        self._ser.write(self._brightness)
 
     def addColor(self, colorHex):
         self._colorArray += colorHex
