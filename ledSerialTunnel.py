@@ -11,8 +11,8 @@ class LedSerialTunnel(object):
         self._ser.baudrate = 9600
         self._ser.timeout = 1
         self._ser.open()
-        self._ser.setDTR(False)
-        #arduinoSerialData.setRTS(False)
+        #self._ser.setDTR(False)
+        self._ser.setRTS(False)
 
         self._ser.write(b'0')
         import time
