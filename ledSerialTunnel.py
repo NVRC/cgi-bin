@@ -13,7 +13,7 @@ class LedSerialTunnel(object):
     def addColor(self, colorHex):
         self.colorArray += colorHex
         self.count = self.count + 1
-        if count = 10:
+        if count == 10:
             self.ser.write(self.colorArray)
             self.colorArray = ""
             self.count = 0
