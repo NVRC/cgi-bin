@@ -8,6 +8,8 @@ class LedSerialTunnel(object):
         self._count = 0
         self._ser = serial.Serial(self._port,9600)
         self._ser.write(b'0')
+        import time
+        time.sleep(1)
         self._ser.write(hex(self._brightness))
 
     def addColor(self, colorHex):
@@ -17,7 +19,7 @@ class LedSerialTunnel(object):
             print("Adding a segment")
             print(self._colorArray)
             print(bytearray(self._colorArray))
-            self._ser.write(self._colorArray)
+            self._ser.write(bytearray(self._colorArray))
             self._colorArray = ""
             self._count = 0
             import time
