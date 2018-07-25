@@ -47,7 +47,7 @@ for key in range(0,60):
 			if close:
 				s.close()
 	else:
-		#temp = gh.dotstarlib_correction(fs[str(key)].value)
+		temp = gh.dotstarlib_correction(fs[str(key)].value)
 		print(str(key)+' 0x%06x' % int(temp,16))
 		temp = int('0x%06x' % int(temp,16),16)
 		addToShelf(i,temp)
