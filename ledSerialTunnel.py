@@ -19,4 +19,4 @@ class LedSerialTunnel(object):
             self._colorArray = ""
             self._count = 0
             import time
-            time.sleep(10)
+            time.sleep(1)
