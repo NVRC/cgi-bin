@@ -2,6 +2,7 @@
 import cgi
 import cgitb
 import shelve
+from ledSerialTunnel import LedSerialTunnel
 from dotstar import Adafruit_DotStar
 from led_drivers import nLevelLinearGradient as nllg
 from led_drivers import gradientHelpers as gh
@@ -31,10 +32,8 @@ argString += fs["brightness"].value
 print "Content-Type: text/plain\n"
 print(argString)
 #nllg.led_output(argString)
-import ledSerialTunnel
+
 ldt = LedSerialTunnel(int(fs["brightness"].value)
-
-
 
 i = 0
 for key in range(0,60):

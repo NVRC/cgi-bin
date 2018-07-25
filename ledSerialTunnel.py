@@ -1,14 +1,15 @@
 
-PORT = ""
 
-import serial
+
 
 
 
 class LedSerialTunnel(object):
 
     def __init__(self, b):
+        import serial
         self.brightness = b
+        self.port = "/dev/ttyUSB0"
         self.colorArray = ""
         self.count = 0
         self.ser = serial.Serial(PORT,9600)
