@@ -32,7 +32,7 @@ argString += fs["brightness"].value
 print "Content-Type: text/plain\n"
 print(argString)
 #nllg.led_output(argString)
-ldt = LedSerialTunnel(fs["brightness"].value)
+ldt = LedSerialTunnel(int(fs["brightness"].value,10))
 i = 0
 for key in range(0,60):
 	if nullCount >= 60:
