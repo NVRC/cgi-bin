@@ -2,6 +2,7 @@ class LedSerialTunnel(object):
 
     def __init__(self, b):
         import serial
+        import struct
         self._brightness = b
         self._port = "/dev/ttyUSB0"
         self._colorArray = ""
