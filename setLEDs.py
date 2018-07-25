@@ -51,7 +51,7 @@ for key in range(0,60):
 				s.close()
 	else:
 		temp = fs[str(key)].value
-		print(temp)
+		print(str(temp))
 		addToShelf(i,temp)
 	ldt.addColor(temp)
 	i = i + 1
