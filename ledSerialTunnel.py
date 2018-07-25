@@ -24,8 +24,8 @@ class LedSerialTunnel(object):
         self._count = self._count + 1
         if self._count == 10:
             print("Adding a segment")
-            print(self._colorArray)
-            print(bytearray(self._colorArray))
+            print(len(self._colorArray))
+            print(len(bytearray(self._colorArray)))
             self._ser.write(bytearray(self._colorArray))
             self._colorArray = ""
             self._count = 0
