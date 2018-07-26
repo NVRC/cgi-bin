@@ -1,6 +1,6 @@
 from ledSerialTunnel import LedSerialTunnel
 
-lct = LedSerialTunnel(int(255))
+lct = LedSerialTunnel(int(254))
 
 color = 'ff0000'
 count = 0
