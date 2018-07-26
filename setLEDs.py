@@ -35,7 +35,7 @@ print(argString)
 print("brightness "+fs["brightness"].value)
 print(int(fs["brightness"].value,10))
 print(hex(int(fs["brightness"].value,10)))
-ldt = LedSerialTunnel(int(fs["brightness"].value,10))
+ldt = LedSerialTunnel(int(255))
 i = 0
 for key in range(0,60):
 	if nullCount >= 60:
