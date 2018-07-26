@@ -29,7 +29,7 @@ for key in fs.keys():
 	argString +=fs[key].value
 	argString += " "
 argString += fs["brightness"].value
-print "Content-Type: text/plain\n"
+print("Content-Type: text/plain\n")
 print(argString)
 #nllg.led_output(argString)
 print("brightness "+fs["brightness"].value)
