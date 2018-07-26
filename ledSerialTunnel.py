@@ -15,12 +15,10 @@ class LedSerialTunnel(object):
         self._ser.open()
         #self._ser.setDTR(False)
         #self._ser.setRTS(False)
-        print('0\r\n'.encode('utf-8'))
         self._ser.write('0\r\n'.encode('utf-8'))
         time.sleep(0.1)
 
 
-        print("{:02x}\r\n".format(self._brightness).encode('utf-8'))
         self._ser.write("{:02x}\r\n".format(self._brightness).encode('utf-8'))
         time.sleep(0.5)
     def addColor(self, colorHex):
@@ -29,8 +27,6 @@ class LedSerialTunnel(object):
         self._count = self._count + 1
         if self._count == 10:
             self._colorArray += '\r\n'
-            print("Adding a segment")
-            print(self._colorArray.encode('utf-8'))
             self._ser.write(self._colorArray.encode('utf-8'))
             time.sleep(0.5)
             self._colorArray = ""
