@@ -17,11 +17,14 @@ class LedSerialTunnel(object):
         #self._ser.setRTS(False)
         self._ser.write('0\r\n'.encode('utf-8'))
 
+        time.sleep(0.1)
 
 
         self._ser.write("{:02x}\r\n".format(self._brightness).encode('utf-8'))
+        time.sleep(0.1)
 
     def addColor(self, colorHex):
+        import time
         self._colorArray += colorHex
         self._count = self._count + 1
         if self._count == 10:
@@ -29,6 +32,7 @@ class LedSerialTunnel(object):
             self._ser.write(self._colorArray.encode('utf-8'))
             self._colorArray = ""
             self._count = 0
+            time.sleep(0.1)
 
 
     def close(self):
