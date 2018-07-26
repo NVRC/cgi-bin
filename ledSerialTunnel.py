@@ -17,7 +17,7 @@ class LedSerialTunnel(object):
         #self._ser.setRTS(False)
         self._ser.write('0\r\n'.encode('utf-8'))
 
-        delay(0.1)
+        time.delay(0.1)
 
         self._ser.write("{:02x}\r\n".format(self._brightness).encode('utf-8'))
 
