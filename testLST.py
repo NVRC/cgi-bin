@@ -2,7 +2,7 @@ from ledSerialTunnel import LedSerialTunnel
 
 lct = LedSerialTunnel(int(254))
 
-color = 'ff0000'
+color = 'fd5659'
 count = 0
 while count < 60:
     lct.addColor(color)
