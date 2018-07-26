@@ -5,7 +5,7 @@ class LedSerialTunnel(object):
         import struct
         import time
         self._brightness = b
-        self._port = "/dev/ttyUSB0"
+        self._port = "/dev/cu.wchusbserial1410"
         self._colorArray = ""
         self._count = 0
         self._ser = serial.Serial()
@@ -17,11 +17,11 @@ class LedSerialTunnel(object):
         #self._ser.setRTS(False)
         self._ser.write('0\r\n'.encode('utf-8'))
 
-        time.sleep(0.1)
+        time.sleep(0.2)
 
 
         self._ser.write("{:02x}\r\n".format(self._brightness).encode('utf-8'))
-        time.sleep(0.1)
+        time.sleep(0.2)
 
     def addColor(self, colorHex):
         import time
