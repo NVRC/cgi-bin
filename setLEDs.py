@@ -50,8 +50,8 @@ for key in range(0,60):
 			if close:
 				s.close()
 	else:
-		temp = "{:06x}".format(fs[str(key)].value)
-		print(temp)
+		temp = fs[str(key)].value
+		print(type(temp))
 		addToShelf(i,temp)
 		ldt.addColor(temp)
 	i = i + 1
