@@ -53,7 +53,7 @@ for key in range(0,60):
 		temp = fs[str(key)].value
 		print(str(temp))
 		addToShelf(i,temp)
-		ldt.addColor(hex(temp))
+		ldt.addColor(temp.encode('UTF-8'))
 	i = i + 1
 
 ldt.close()
