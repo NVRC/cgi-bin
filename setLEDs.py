@@ -50,7 +50,7 @@ for key in range(0,60):
 	else:
 		temp = fs[str(key)].value
 		addToShelf(i,temp)
-	ldt.addColor(str(temp))
+	ldt.addColor(temp)
 	i = i + 1
 
 ldt.close()
