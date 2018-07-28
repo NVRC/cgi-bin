@@ -12,7 +12,7 @@ class LedSerialTunnel(object):
         self._ser.port = self._port
         self._ser.baudrate = 9600
         #self._ser.timeout = 1
-        #self._ser.setDTR(False)
+        self._ser.setDTR(False)
         #self._ser.setRTS(False)
         self._ser.open()
 
@@ -20,7 +20,7 @@ class LedSerialTunnel(object):
 
         self._ser.write("<{:02x}>".format(self._brightness).encode('utf-8'))
     def addColor(self, colorHex):
-        import time
+
         self._colorArray += colorHex
         self._count = self._count + 1
         if self._count == 60:
