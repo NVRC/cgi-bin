@@ -6,7 +6,7 @@ from ledSerialTunnel import LedSerialTunnel
 
 db = 'color_shelf.db'
 def addToShelf(index, color):
-	s = shelve.open(color_shelf)
+	s = shelve.open('color_shelf')
 	try:
 		s[str(index)] = color
 	finally:
