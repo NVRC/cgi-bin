@@ -12,9 +12,10 @@ class LedSerialTunnel(object):
         self._ser.port = self._port
         self._ser.baudrate = 9600
         #self._ser.timeout = 1
+        self._ser.open()
         self._ser.setDTR(False)
         #self._ser.setRTS(False)
-        self._ser.open()
+
 
         self._ser.write('<0>'.encode('utf-8'))
 
