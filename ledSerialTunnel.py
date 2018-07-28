@@ -5,7 +5,7 @@ class LedSerialTunnel(object):
         import struct
         import time
         self._brightness = b
-        self._port = "/dev/ttyUSB0"
+        self._port = "/dev/cu.wchusbserial1410"
         self._colorArray = "<"
         self._count = 0
         self._ser = serial.Serial()

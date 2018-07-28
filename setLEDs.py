@@ -1,11 +1,9 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 import cgi
 import cgitb
 import shelve
 from ledSerialTunnel import LedSerialTunnel
-from dotstar import Adafruit_DotStar
-from led_drivers import nLevelLinearGradient as nllg
-from led_drivers import gradientHelpers as gh
+
 db = 'color_shelf.db'
 def addToShelf(index, color):
 	s = shelve.open(db)
