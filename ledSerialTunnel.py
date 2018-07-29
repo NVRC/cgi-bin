@@ -11,7 +11,7 @@ class LedSerialTunnel(object):
         self._ser = serial.Serial()
         self._ser.port = self._port
         self._ser.baudrate = 9600
-        self._ser.dsrdtr = True
+        self._ser.setDTR(False)
         print(self._ser)
         if self._ser.isOpen() == False:
             print("openning")
