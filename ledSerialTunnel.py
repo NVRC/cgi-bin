@@ -11,7 +11,10 @@ class LedSerialTunnel(object):
         self._ser = serial.Serial()
         self._ser.port = self._port
         self._ser.baudrate = 9600
+        self._ser.open()
+        time.sleep(6)
         self._ser.flushInput()
+        time.sleep(0.1)
         print(self._ser)
         #self._ser.timeout = 1
         #self._ser.open()
