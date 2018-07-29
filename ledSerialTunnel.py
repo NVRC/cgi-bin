@@ -17,9 +17,9 @@ class LedSerialTunnel(object):
             print("openning")
             self._ser.open()
             self._ser.setDTR(False)
-            time.sleep(6)
+            #time.sleep(6)
         self._ser.flushInput()
-        time.sleep(0.1)
+        #time.sleep(0.1)
         print(self._ser)
         #self._ser.timeout = 1
         #self._ser.open()
