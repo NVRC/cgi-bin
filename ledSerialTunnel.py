@@ -12,6 +12,7 @@ class LedSerialTunnel(object):
         self._ser.port = self._port
         self._ser.baudrate = 9600
         if self._ser.isOpen() == False:
+            print("openning")
             self._ser.open()
             time.sleep(6)
         self._ser.flushInput()
