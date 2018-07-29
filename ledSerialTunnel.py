@@ -11,8 +11,9 @@ class LedSerialTunnel(object):
         self._ser = serial.Serial()
         self._ser.port = self._port
         self._ser.baudrate = 9600
-        self._ser.open()
-        time.sleep(6)
+        if self._ser.is_open() == False:
+            self._ser.open()
+            time.sleep(6)
         self._ser.flushInput()
         time.sleep(0.1)
         print(self._ser)
@@ -37,6 +38,12 @@ class LedSerialTunnel(object):
             self._ser.write(self._colorArray.encode('utf-8'))
             self._colorArray = "<"
             self._count = 0
+
+    def isOpen(self):
+        if self._ser.is_open() == True:
+            return True
+        else:
+            return False
 
 
     def close(self):
