@@ -13,9 +13,6 @@ def addToShelf(index, color):
 	finally:
 		s.close()
 
-
-cgitb.enable()
-fs = cgi.FieldStorage()
 argFlag = False
 if len(sys.argv) > 1:
 	argFlag = True
@@ -27,6 +24,10 @@ if len(sys.argv) > 1:
 		brightness = 0
 else:
 	brightness = int(fs["brightness"].value,10)
+
+if argFlag == False:
+	cgitb.enable()
+	fs = cgi.FieldStorage()
 
 ldt = LedSerialTunnel(brightness)
 argString =""
@@ -40,8 +41,8 @@ if argFlag == False:
 		argString +=fs[key].value
 		argString += " "
 		argString += fs["brightness"].value
-print("Content-Type: text/plain\n")
-print(argString)
+	print("Content-Type: text/plain\n")
+	print(argString)
 #nllg.led_output(argString)
 
 
