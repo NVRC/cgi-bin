@@ -29,7 +29,7 @@ if argFlag == False:
 	cgitb.enable()
 	fs = cgi.FieldStorage()
 
-ldt = LedSerialTunnel(brightness)
+
 argString =""
 nullCount = 0
 close = False
@@ -44,7 +44,7 @@ if argFlag == False:
 	print("Content-Type: text/plain\n")
 	print(argString)
 #nllg.led_output(argString)
-
+ldt = LedSerialTunnel(brightness)
 
 i = 0
 for key in range(0,60):
