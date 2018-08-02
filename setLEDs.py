@@ -24,10 +24,9 @@ if len(sys.argv) > 1:
 		brightness = 0
 
 
-if argFlag == False:
-	cgitb.enable()
-	fs = cgi.FieldStorage()
-	brightness = int(fs["brightness"].value,10)
+cgitb.enable()
+fs = cgi.FieldStorage()
+brightness = int(fs["brightness"].value,10)
 
 
 argString =""
