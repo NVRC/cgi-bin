@@ -12,7 +12,7 @@ def addToShelf(index, color):
 		s[str(index)] = color
 	finally:
 		s.close()
-
+brightness = 0
 argFlag = False
 if len(sys.argv) > 1:
 	argFlag = True
