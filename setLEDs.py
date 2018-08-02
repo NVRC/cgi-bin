@@ -13,14 +13,21 @@ def addToShelf(index, color):
 	finally:
 		s.close()
 
-ldt = LedSerialTunnel(int(fs["brightness"].value,10))
+
 cgitb.enable()
 fs = cgi.FieldStorage()
-brightFlag = False
+argFlag = False
 if len(sys.argv) > 1:
 	if sys.argv[1] == 'on':
-		brightFlag = True
+		argFlag = True
+		brightness = 255
+	elif sys.argv[1] == 'off':
+		argFlag = True
+		brightness = 0
+else:
+	brightness = int(fs["brightness"].value,10)
 
+ldt = LedSerialTunnel(brightness)
 argString =""
 nullCount = 0
 close = False
@@ -34,13 +41,11 @@ argString += fs["brightness"].value
 print("Content-Type: text/plain\n")
 print(argString)
 #nllg.led_output(argString)
-print("brightness "+fs["brightness"].value)
-print(int(fs["brightness"].value,10))
-print(hex(int(fs["brightness"].value,10)))
+
 
 i = 0
 for key in range(0,60):
-	if nullCount >= 60 or brightFlag == True:
+	if nullCount >= 60 or argFlag == True:
 		s = shelve.open(db)
 		try:
 			temp = s[str(i)]
