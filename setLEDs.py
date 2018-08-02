@@ -15,6 +15,7 @@ def addToShelf(index, color):
 
 argFlag = False
 brightness = 1000
+webFlag = False
 if len(sys.argv) > 1:
 	argFlag = True
 	if sys.argv[1] == 'on':
@@ -23,9 +24,11 @@ if len(sys.argv) > 1:
 	elif sys.argv[1] == 'off':
 
 		brightness = 0
+	else:
+		webFlag = True
 
 
-if argFlag == False:
+if webFlag == True:
 	cgitb.enable()
 	fs = cgi.FieldStorage()
 	brightness = int(fs["brightness"].value,10)
