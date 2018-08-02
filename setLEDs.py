@@ -18,11 +18,12 @@ cgitb.enable()
 fs = cgi.FieldStorage()
 argFlag = False
 if len(sys.argv) > 1:
+	argFlag = True
 	if sys.argv[1] == 'on':
-		argFlag = True
+
 		brightness = 255
 	elif sys.argv[1] == 'off':
-		argFlag = True
+
 		brightness = 0
 else:
 	brightness = int(fs["brightness"].value,10)
@@ -31,16 +32,17 @@ ldt = LedSerialTunnel(brightness)
 argString =""
 nullCount = 0
 close = False
-for key in fs.keys():
-	if str(fs[key].value) == "000000":
-		nullCount = nullCount + 1
+if argFlag == False:
+	for key in fs.keys():
+		if str(fs[key].value) == "000000":
+			nullCount = nullCount + 1
 
-	argString +=fs[key].value
-	argString += " "
-argString += fs["brightness"].value
-print("Content-Type: text/plain\n")
-print(argString)
-#nllg.led_output(argString)
+		argString +=fs[key].value
+		argString += " "
+	argString += fs["brightness"].value
+	print("Content-Type: text/plain\n")
+	print(argString)
+	#nllg.led_output(argString)
 
 
 i = 0
