@@ -5,7 +5,7 @@ import shelve
 import sys
 from ledSerialTunnel import LedSerialTunnel
 
-db = 'color_shelf.db'
+
 def addToShelf(index, color):
 	s = shelve.open('color_shelf')
 	try:
@@ -48,7 +48,7 @@ if argFlag == False:
 i = 0
 for key in range(0,60):
 	if nullCount >= 60 or argFlag == True:
-		s = shelve.open(db)
+		s = shelve.open('color_shelf')
 		try:
 			temp = s[str(i)]
 			if i == 59:
