@@ -14,6 +14,7 @@ def addToShelf(index, color):
 		s.close()
 
 argFlag = False
+brightness = 1000
 if len(sys.argv) > 1:
 	argFlag = True
 	if sys.argv[1] == 'on':
@@ -44,6 +45,8 @@ if argFlag == False:
 	print("Content-Type: text/plain\n")
 	print(argString)
 #nllg.led_output(argString)
+if brightness == 1000:
+	brightness = int(fs["brightness"].value,10)
 ldt = LedSerialTunnel(brightness)
 
 i = 0
