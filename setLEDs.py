@@ -2,6 +2,7 @@
 import cgi
 import cgitb
 import shelve
+import sys
 from ledSerialTunnel import LedSerialTunnel
 
 db = 'color_shelf.db'
@@ -12,10 +13,13 @@ def addToShelf(index, color):
 	finally:
 		s.close()
 
-
+ldt = LedSerialTunnel(int(fs["brightness"].value,10))
 cgitb.enable()
 fs = cgi.FieldStorage()
-
+brightFlag = False
+if len(sys.argv) > 1:
+	if sys.argv[1] == 'on':
+		brightFlag = True
 
 argString =""
 nullCount = 0
@@ -33,10 +37,10 @@ print(argString)
 print("brightness "+fs["brightness"].value)
 print(int(fs["brightness"].value,10))
 print(hex(int(fs["brightness"].value,10)))
-ldt = LedSerialTunnel(int(fs["brightness"].value,10))
+
 i = 0
 for key in range(0,60):
-	if nullCount >= 60:
+	if nullCount >= 60 or brightFlag == True:
 		s = shelve.open(db)
 		try:
 			temp = s[str(i)]
