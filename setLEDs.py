@@ -12,7 +12,7 @@ def addToShelf(index, color):
 		s[str(index)] = color
 	finally:
 		s.close()
-brightness = 0
+
 argFlag = False
 if len(sys.argv) > 1:
 	argFlag = True
@@ -24,9 +24,10 @@ if len(sys.argv) > 1:
 		brightness = 0
 
 
-cgitb.enable()
-fs = cgi.FieldStorage()
-brightness = int(fs["brightness"].value,10)
+if argFlag == False:
+	cgitb.enable()
+	fs = cgi.FieldStorage()
+	brightness = int(fs["brightness"].value,10)
 
 
 argString =""
