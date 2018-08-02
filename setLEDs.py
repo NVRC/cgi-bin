@@ -5,7 +5,7 @@ import shelve
 import sys
 from ledSerialTunnel import LedSerialTunnel
 
-
+db = 'color_shelf.db'
 def addToShelf(index, color):
 	s = shelve.open('color_shelf')
 	try:
@@ -39,10 +39,10 @@ if argFlag == False:
 
 		argString +=fs[key].value
 		argString += " "
-	argString += fs["brightness"].value
-	print("Content-Type: text/plain\n")
-	print(argString)
-	#nllg.led_output(argString)
+		argString += fs["brightness"].value
+print("Content-Type: text/plain\n")
+print(argString)
+#nllg.led_output(argString)
 
 
 i = 0
