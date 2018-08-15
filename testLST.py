@@ -1,9 +1,10 @@
-from ledSerialTunnel import LedSerialTunnel
+from ledSerialTunnelDisabledDTR import LedSerialTunnelDisabledDTR
 
-lct = LedSerialTunnel(int(255))
+lct = LedSerialTunnelDisabledDTR(int(255))
 
-color = 'ff0000'
+color = '0000ff'
 count = 0
 while count < 60:
     lct.addColor(color)
     count = count + 1
+lct.close()
