@@ -3,7 +3,7 @@ import cgi
 import cgitb
 import shelve
 import sys
-from ledSerialTunnel import LedSerialTunnel
+from ledSerialTunnelDisabledDTR import LedSerialTunnelDisabledDTR
 
 db = 'color_shelf.db'
 def addToShelf(index, color):
@@ -50,7 +50,7 @@ if argFlag == False:
 #nllg.led_output(argString)
 if brightness == 1000:
 	brightness = int(fs["brightness"].value,10)
-ldt = LedSerialTunnel(brightness)
+ldt = LedSerialTunnelDisabledDTR(brightness)
 
 i = 0
 for key in range(0,60):
