@@ -4,7 +4,7 @@ class LedSerialTunnelDisabledDTR(object):
         import serial
         import struct
         import time
-        self._brightness = b
+        self._brightness = int(float(b))
         self._port = "/dev/ttyUSB0"
         self._colorArray = "<"
         self._count = 0
