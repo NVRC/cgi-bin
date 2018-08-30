@@ -5,7 +5,7 @@ class LedSerialTunnelDisabledDTR(object):
         import struct
         import time
         self._brightness = b
-        self._port = "/dev/cu.wchusbserial1420"
+        self._port = "/dev/ttyUSB0"
         self._colorArray = "<"
         self._count = 0
         self._ser = serial.Serial()
@@ -13,17 +13,6 @@ class LedSerialTunnelDisabledDTR(object):
         self._ser.baudrate = 9600
         self._ser.open()
         time.sleep(0.1)
-        #time.sleep(0.1)
-        print(self._ser)
-        #self._ser.timeout = 1
-        #self._ser.open()
-        #time.sleep(6)
-        #self._ser.setDTR(False)
-        #self._ser.setRTS(False)
-
-
-
-
         self._ser.write('<0>'.encode('utf-8'))
         time.sleep(0.1)
 
@@ -34,16 +23,23 @@ class LedSerialTunnelDisabledDTR(object):
         self._colorArray += colorHex
         self._count = self._count + 1
         if self._count == 60:
-            self._colorArray += ">"
-            self._ser.write(self._colorArray.encode('utf-8'))
-            self._colorArray = "<"
-            self._count = 0
+            self.writeColors()
+
+    def writeColors(self):
+        self._colorArray += ">"
+        self._ser.write(self._colorArray.encode('utf-8'))
+        self._colorArray = "<"
+        self._count = 0
 
     def isOpen(self):
         if self._ser.isOpen() == True:
             return True
         else:
             return False
+
+    def setColorList(self, colorList):
+        self._colorArray = colorList
+        self.writeColors()
 
 
     def close(self):
