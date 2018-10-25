@@ -39,7 +39,7 @@ class LedSerialTunnelDisabledDTR(object):
             return False
 
     def setColorList(self, colorList):
-        self._colorArray = colorList
+        self._colorArray += colorList
         print("ColorList: ", end=colorList,flush=True)
         self.writeColors()
 
