@@ -27,6 +27,7 @@ class LedSerialTunnelDisabledDTR(object):
 
     def writeColors(self):
         self._colorArray += ">"
+        print(self._colorArray)
         self._ser.write(self._colorArray.encode('utf-8'))
         self._colorArray = "<"
         self._count = 0
@@ -39,6 +40,7 @@ class LedSerialTunnelDisabledDTR(object):
 
     def setColorList(self, colorList):
         self._colorArray = colorList
+        print("ColorList: ", end=colorList,flush=True)
         self.writeColors()
 
 
