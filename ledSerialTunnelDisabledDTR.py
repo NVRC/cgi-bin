@@ -28,6 +28,8 @@ class LedSerialTunnelDisabledDTR(object):
             self.writeColors()
 
     def writeColors(self):
+        import time
+
         if self._rate != 0:
             self._ser.write('<{:01x}>'.format(self._cmd).encode('utf-8'))
             time.sleep(0.1)
