@@ -12,7 +12,7 @@ class LedSerialTunnelDisabledDTR(object):
         self._ser.port = self._port
         self._ser.baudrate = 9600
         self._rate = 0
-        self._cmd = 0;
+        self._cmd = 0
         self._ser.open()
         time.sleep(0.1)
 
@@ -29,16 +29,17 @@ class LedSerialTunnelDisabledDTR(object):
 
     def writeColors(self):
         import time
-
+        cmdStr = '<'+self._cmd+'>'
+        self._ser.write(cmdStr.encode('utf-8'))
         if self._rate != 0:
-            self._ser.write('<{:01x}>'.format(self._cmd).encode('utf-8'))
+
             time.sleep(0.1)
         else:
             self._ser.write('<0>'.encode('utf-8'))
             time.sleep(0.1)
 
         if self._rate != 0:
-            self._ser.write('<{:03x}>'.format(self._rate).encode('utf-8'))
+            self._ser.write('<{:04x}>'.format(self._rate).encode('utf-8'))
             time.sleep(0.1)
 
         self._ser.write('<{:02x}>'.format(self._brightness).encode('utf-8'))
